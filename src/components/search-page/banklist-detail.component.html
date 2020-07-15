@@ -1,0 +1,65 @@
+<div class="container-fluid">
+    <div class="panel panel-primary" *ngIf='bank'>
+        <!-- <div class="panel-heading">
+          
+            <div class="row">
+                <div class="col-md-3"> {{pageTitle }} +":"</div>
+                <div class="col-md-6"> {{bank.bank_name}}</div>
+            </div>
+        </div> -->
+    <div class="panel-heading text-light">
+          
+            <div class="row bg-primary p-3">
+                <div class="col-md-3"> {{pageTitle}} </div>
+            </div>
+    </div> 
+        <div class="panel-body">
+            <div class="row p-3">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-3">Bank Name:</div>
+                        <div class="col-md-6 text-secondary">{{bank.bank_name}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">IfSC Code:</div>
+                        <div class="col-md-6 text-secondary">{{bank.ifsc}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">Bank Code:</div>
+                        <div class="col-md-6 text-secondary">{{bank.bank_id}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">Bank Branch:</div>
+                        <div class="col-md-6 text-secondary">{{bank.branch}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">City:</div>
+                        <div class="col-md-6 text-secondary">{{bank.city | titlecase}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">District:</div>
+                        <div class="col-md-6 text-secondary">{{bank.district | titlecase}}</div>
+                    </div>
+                    <div class='row'>
+                        <div class="col-md-3">State:</div>
+                        <div class="col-md-6 text-secondary">{{bank.state | titlecase}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">Address:</div>
+                        <div class="col-md-6 text-secondary">{{bank.address | titlecase}}</div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div> 
+        <div class='card-footer'>
+            <button class='btn btn-outline-primary'
+                    (click)='onBack()'
+                    style='width:80px'>
+              <i class='fa fa-chevron-left'></i> Back
+            </button>
+          </div> 
+    </div> 
+</div>
+  
+           

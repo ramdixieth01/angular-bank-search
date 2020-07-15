@@ -1,0 +1,78 @@
+<!-- <nav-bar></nav-bar> -->
+<div class="container-fluid pt-5">
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <h4 class="text-primary">Bank Search</h4>
+    </div>
+  </div>
+  <div class="row">  
+    <div class="col-lg-12 col-md-12 col-sm-12"> 
+    <form>
+        <div class="form-row">
+            <!-- <div class="form-group col-md-4">
+                <label for="inputState">State</label>
+                <select id="inputState" class="form-control" >
+                  <option *ngFor="let names of cities">{{names}}</option>
+                </select>
+              </div> -->
+          <div class="form-group col-lg-8 col-md-12">
+            <label for="name">Bank Name</label>
+            <input type="text" class="form-control" id="name" [(ngModel)]='bankinput' [ngModelOptions]="{standalone: true}">
+          </div>
+          <div class="form-group col-lg-4 col-md-12">
+            <label for="inputnum">output per page</label>
+            <select id="inputnum" class="form-control" (change)="selectChangeHandler($event)">
+              <option *ngFor="let number of output">{{number}}</option>
+              <!-- <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="4">4</option>
+                   <option value="6">6</option>
+                  <option value="8">8</option> -->
+            </select>
+         </div>
+        </div>
+    </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12">
+      <div class="text-right">
+        <pagination-controls (pageChange)="p=$event"></pagination-controls>
+      </div>
+    </div>
+ </div>
+ 
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="table-responsive-md">
+      <table class="table table-borderless table-xs">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">IFSC Code</th>
+            <th scope="col">Bank Code</th>
+            <th scope="col">Bank Name</th>
+            <th scope="col">Branch Name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let bank of filteredBanks | paginate: { itemsPerPage: selectedNumber, currentPage: p }" >
+            <td><a class ="nav-link p-0" [routerLink]="['/searchpage',bank.ifsc]">{{bank.ifsc}}</a></td>
+            <td>{{bank.bank_id}}</td>
+            <td>{{bank.bank_name | titlecase}}</td>
+            <td>{{bank.branch}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+ <div class="row">
+   <div class="col-lg-12 col-md-12 col-sm-12">
+  <!-- <banklist [_bankinput]="bankfilter"></banklist> -->
+  <div class="text-right">
+    <pagination-controls (pageChange)="p=$event"></pagination-controls>
+  </div>
+   </div>
+  </div>
+ 
+</div>
